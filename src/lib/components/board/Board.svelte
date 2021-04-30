@@ -1,6 +1,7 @@
 <script lang="ts">
-  import { board, size } from "$stores";
-  import Cell from "./Cell.svelte";  
+  import { board } from "$stores/board";
+  import { size } from "$stores/settings";
+  import Cell from "./Cell.svelte";
   
   export let active: boolean = true;
   
