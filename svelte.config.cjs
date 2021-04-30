@@ -27,6 +27,7 @@ module.exports = {
           "$components": resolve(__dirname, "./src/lib/components"),
           "$stores": resolve(__dirname, "./src/lib/stores"),
           "$utils": resolve(__dirname, "./src/lib/utils"),
+          "$views": resolve(__dirname, "./src/lib/views"),
           "$types": resolve(__dirname, "./src/types")
         }
       }
