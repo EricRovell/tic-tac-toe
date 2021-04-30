@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { history, currentPlayer } from "$stores";
+  import { history } from "$stores/board";
+  import { currentPlayer } from "$stores/status";
   import type { BoardMark } from "$types";
   
   import Mark from "./Mark.svelte";
