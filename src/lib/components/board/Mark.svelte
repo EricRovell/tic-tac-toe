@@ -11,7 +11,6 @@
   <div transition:fade|local>
     <Icon
       path={$mark[value]}
-      color="primary"
       size="100%"
     />
   </div>
