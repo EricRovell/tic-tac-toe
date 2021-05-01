@@ -8,19 +8,16 @@
   import "../styles/typography.css";
 </script>
 
-<div>
-  <Header />
-  <section label="content">
-    <slot />
-  </section>
-  <Footer />
-</div>
+<Header />
+<section label="content">
+  <slot />
+</section>
+<Footer />
 
 <style>
-  div {
+  :global(body) {
     display: grid;
     grid-template: min-content 1fr min-content / 1fr;
-    gap: 1em;
     min-height: 100vh;
     width: 100%;
   }
