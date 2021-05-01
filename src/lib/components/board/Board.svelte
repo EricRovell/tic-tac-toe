@@ -41,7 +41,7 @@
     grid-template: repeat(var(--board-size), 1fr) / repeat(var(--board-size), 1fr);
     place-content: center;
     place-items: center;
-    gap: 0.5em;
+    gap: 0.75em;
     width: fit-content;
   }
   
