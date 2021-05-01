@@ -1,8 +1,18 @@
 <script lang="ts">
-  import DefaultSkin from "./skins/Default.svelte";
-  import type { BoardMark } from "$types";  
+  import { mark } from "$stores/mark";
+  import { fade } from "svelte/transition";
+  import { Icon } from "$components/svg";
+  import type { BoardMark } from "$types";
   
-  export let mark: BoardMark = null;
+  export let value: BoardMark = null;
 </script>
 
-<DefaultSkin value={mark} />
+{#if value}
+  <div transition:fade|local>
+    <Icon
+      path={$mark[value]}
+      color="primary"
+      size="100%"
+    />
+  </div>
+{/if}
