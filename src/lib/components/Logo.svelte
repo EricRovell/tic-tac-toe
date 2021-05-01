@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let title = "TicTacToe";
+  export let title = "tic×tac×toe";
 </script>
 
 <a href="/">
