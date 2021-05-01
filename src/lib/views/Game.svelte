@@ -1,13 +1,34 @@
 <script lang="ts">
-  import { Board, Message } from "$components/board";
+  import { Toast } from "$components/feedback";
+  import { Board } from "$components/board";
   import { Status } from "$components/status";
-  import { inGame } from "$stores/status";
+  import { inGame, tie, winner } from "$stores/status";
+  import { startNewRound } from "$stores/action";
+  import { Button } from "$components/input";
+  
+  function gameEnded() {
+    if ($tie) return "It's a tie!";
+    if ($winner === 1) return "Player X has won!";
+    if ($winner === -1) return "Player O has won!";
+  }
 </script>
 
 <main>
   <Status />
   <Board active={$inGame} />
-  <Message />
+  {#if !$inGame}
+    <Toast style="position: sticky; bottom: 1em;">
+      <h2 slot="title">
+        {gameEnded()}
+      </h2>
+      <Button on:click={startNewRound} variant="primary" appearance="fill">
+        Next Round
+      </Button>
+      <Button href="/">
+        Back to menu
+      </Button>
+    </Toast>
+  {/if}
 </main>
 
 <style>
