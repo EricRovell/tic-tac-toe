@@ -6,9 +6,9 @@
 </script>
 
 <section label="player-score">
-  <Player mark={1} />
+  <Player playerMark={1} />
   <output>{x}:{y}</output>
-  <Player mark={-1} />
+  <Player playerMark={-1} />
 </section>
 
 <style>
