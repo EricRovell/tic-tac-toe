@@ -1,1 +1,0 @@
-import{C as s}from"./vendor-be3891bb.js";const e=function(){const e=globalThis.window&&window.matchMedia("(prefers-color-scheme: dark)").matches,{subscribe:o,update:r}=s(e);return{subscribe:o,switch:()=>r((s=>!s))}}();export{e as d};
