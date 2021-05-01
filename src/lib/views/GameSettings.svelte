@@ -1,7 +1,8 @@
 <script>
   import { goto } from "$app/navigation";
-  import { InputNumber, RadioGroup, Button } from "$components/input";
+  import { InputNumber, RadioGroup, Button, Select } from "$components/input";
   import { size, consecutive, firstPlayer } from "$stores/settings";
+  import { markType } from "$stores/mark";
   import { startNewGame } from "$stores/action";
   
   const items = [
@@ -34,6 +35,17 @@
     bind:current={$firstPlayer}
     {items}
     name="first-player"
+  />
+  <Select
+    title="Select a language"
+    id="#mark-skin-select"
+    label="Mark skin"
+    options={[
+      { label: "Classic", value: "classic" },
+      { label: "Starry Love", value: "starry-love" },
+    ]}
+    bind:value={$markType}
+    hiddenFocus
   />
   <Button type="submit">
     Start Game
