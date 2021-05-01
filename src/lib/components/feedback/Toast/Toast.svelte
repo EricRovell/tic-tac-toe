@@ -22,7 +22,7 @@
     bottom: 1em;
     
     padding: 1em;
-    background-color: #21262d;
+    background-color: var(--color-surface-400);
     border-radius: var(--radius-3);
     
     font-size: var(--font-size-1);
