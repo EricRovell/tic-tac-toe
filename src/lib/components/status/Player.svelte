@@ -1,11 +1,15 @@
-<script>
+<script lang="ts">
   import { inGame, currentPlayer } from "$stores/status";
+  import { mark } from "$stores/mark";
   import { Icon } from "$components/svg";
-  import { classic } from "$components/board/skins/svg-default";
   
-  export let mark = 1;
+  export let playerMark = 1;
   
-  $: active = $inGame && mark === $currentPlayer;
+  $: active = $inGame && playerMark === $currentPlayer;
 </script>
 
-<Icon path={classic[mark]} color="primary" glow={active} />
+<Icon
+  path={$mark[playerMark]}
+  color="primary"
+  glow={active}
+/>
