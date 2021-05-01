@@ -22,7 +22,7 @@
   }
   
   input {
-    background-color: #161b22;
+    background-color: var(--color-surface-400);
     border: none;
     color: inherit;
     padding: 0.25em 0.75em;

@@ -104,7 +104,7 @@
   }
 
   svg {
-    fill: gold;
+    fill: lightslategrey;
     width: 100%;
     height: 100%;
   }

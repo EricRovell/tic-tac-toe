@@ -15,7 +15,7 @@
   export let defaultOption: string | null = null;
   
   export let hiddenFocus = false;  
-  export let outline: boolean = true;
+  export let outline: boolean = false;
 </script>
 
 <!--
@@ -115,7 +115,7 @@
     align-items: center;
     width: 100%;
 
-    background-color: #161b22;
+    background-color: var(--color-surface-400);
     color: var(--color-gray-700);
     cursor: pointer;
     border: none;
