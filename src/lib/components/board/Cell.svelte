@@ -17,7 +17,7 @@
 </script>
 
 <button on:click={handleMark} disabled={disabled || !!value}>
-  <Mark mark={value} />
+  <Mark {value} />
 </button>
 
 <style>
