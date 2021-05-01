@@ -41,7 +41,7 @@
   {#if value <= 5}
     <svg {width} {height} viewBox="0 0 {width} {height}" {style}>
       {#each { length: value } as _, index}
-        <circle cx={offset + scale / 2 + index * scale} cy={scale / 2} r={radius} stroke-width={stroke} />
+        <circle cx={offset + scale / 2 + index * scale} cy={scale / 2} r={radius} stroke-width={stroke} fill="none" />
       {/each}
       <line x1="0" y1={scale / 2} x2={width} y2={scale / 2} stroke-width={stroke} />
     </svg>
