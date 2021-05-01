@@ -10,7 +10,7 @@
     place-items: center;
     padding: 0.25em 1em;
     width: 100%;
-    background-color: #161b22;
+    background-color: var(--color-surface-400);
   }
   
   .wrapper {
