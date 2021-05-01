@@ -1,0 +1,1 @@
+- Board sticky row/columns counters;
