@@ -41,12 +41,14 @@
     grid-template: repeat(var(--board-size), 1fr) / repeat(var(--board-size), 1fr);
     place-content: center;
     place-items: center;
-    gap: 0.75em;
+    gap: 1em;
     width: fit-content;
+    padding: 1em;
   }
   
   li {
-    width: fit-content;
+    width: 75px;
+    height: 75px;
   }
   
   /* custom scrollbar */
