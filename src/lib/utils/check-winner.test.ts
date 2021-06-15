@@ -1,4 +1,4 @@
-import { checkWinner } from "$utils";
+import { checkWinner } from "./check-winner";
 import type { TestCase } from "$types";
 
 const cases: TestCase[] = [
