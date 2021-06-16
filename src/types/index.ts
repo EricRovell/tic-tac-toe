@@ -3,6 +3,8 @@ export type BoardMark = PlayerMark | null;
 
 export type Board = BoardMark[][];
 
+export type Coordinate = [ row: number, column: number ];
+
 export interface WinnerCheck {
   board: Board;
   row: number;
@@ -11,8 +13,13 @@ export interface WinnerCheck {
   consecutive: number;
 }
 
-export interface TestCase extends WinnerCheck {
+export interface WinnerCheckStatus {
   win: boolean;
+  coordinates: Array<Coordinate>;
+}
+
+export interface TestCase extends WinnerCheck {
+  check: WinnerCheckStatus
 }
 
 export interface Cell {

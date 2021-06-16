@@ -12,7 +12,10 @@ const cases: TestCase[] = [
     column: 2,
     value: 1,
     consecutive: 3,
-    win: true
+    check: {
+      win: true,
+      coordinates: [ [0, 0], [0, 1], [0, 2] ]
+    }
   },
   {
     board: [
@@ -25,7 +28,10 @@ const cases: TestCase[] = [
     column: 2,
     value: 1,
     consecutive: 4,
-    win: true
+    check: {
+      win: true,
+      coordinates: [ [0, 0], [0, 1], [0, 2], [0, 3] ]
+    }
   },
   {
     board: [
@@ -40,12 +46,33 @@ const cases: TestCase[] = [
     column: 3,
     value: 1,
     consecutive: 4,
-    win: true
+    check: {
+      win: true,
+      coordinates: [ [0, 0], [1, 1], [2, 2], [3, 3] ]
+    }
+  },
+  {
+    board: [
+      [    1, null, null, null, null, null ],
+      [ null,    1,   -1, null, null, null ],
+      [ null, null,    1, null, null, null ],
+      [   -1, null, null, null, null, null ],
+      [   -1, null, null, null, null, null ],
+      [ null, null, null, null, null, null ]
+    ],
+    row: 3,
+    column: 3,
+    value: 1,
+    consecutive: 4,
+    check: {
+      win: false,
+      coordinates: []
+    }
   },
 ];
 
 test("Winner cases", () => {
-  for (const { win, ...rest} of cases) {
-    expect(checkWinner(rest)).toBe(win);
+  for (const { check, ...rest} of cases) {
+    expect(checkWinner(rest)).toEqual(check);
   }
 });

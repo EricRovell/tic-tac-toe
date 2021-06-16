@@ -7,8 +7,13 @@ import { tie } from "./tie";
 /**
  * Current round "win" status.
  */
-export const win = derived([ board, lastMove, consecutive ], ([ $board, $lastMove, $consecutive ]) => {
-  if (!$lastMove) return false;
+ export const winnerCheck = derived([ board, lastMove, consecutive ], ([ $board, $lastMove, $consecutive ]) => {
+  if (!$lastMove) {
+    return {
+      win: false,
+      coordinates: []
+    };
+  }
   
   return checkWinner({
     board: $board,
@@ -16,6 +21,11 @@ export const win = derived([ board, lastMove, consecutive ], ([ $board, $lastMov
     ...$lastMove
   });
 });
+
+/**
+ * Current round "win" status.
+ */
+export const win = derived(winnerCheck, ({ win }) => win);
 
 /**
  * Current round "winner" player status.
@@ -27,3 +37,8 @@ export const winner = derived([ tie, win, lastMove ], ([ $tie, $win, $lastMove ]
     ? $lastMove?.value
     : null;
 });
+
+/**
+ * Winner coordinates
+ */
+export const winnerCoordinates = derived(winnerCheck, ({ coordinates }) => coordinates);

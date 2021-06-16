@@ -1,6 +1,7 @@
 <script lang="ts">
   import { history } from "$stores/board";
   import { currentPlayer } from "$stores/status";
+  import { winnerCoordinates } from "$stores/status";
   import { dark } from "$stores/theme";
   import type { BoardMark } from "$types";
   
@@ -10,7 +11,8 @@
   export let column: number;
   export let value: BoardMark = null;
   export let disabled: boolean = false;
-  //export let winner: boolean = false;
+  
+  $: winner = $winnerCoordinates.some(([ r, c ]) => r === row && c === column);
   
   function handleMark() {
     history.makeMove({ row, column, value: $currentPlayer});
@@ -20,6 +22,7 @@
 <button
   class="cell"
   class:dark={$dark}
+  class:winner
   on:click={handleMark}
   disabled={disabled || !!value}>
     <span class="front">
@@ -28,16 +31,18 @@
 </button>
 
 <style>
-  .cell.dark {
-    --cell-bg: var(--color-gray-600);
-    --cell-bg-front: var(--color-surface-500);
-    --cell-mark-color: var(--color-gray-600);
-  }
-  
-  .cell:not(.dark) {
+  button {
     --cell-bg: hsl(340deg 100% 32%);
     --cell-bg-front: hsl(345deg 100% 47%);
     --cell-mark-color: var(--color-surface-300);
+  }
+  .cell.winner {
+    --cell-bg-front: var(--color-success);
+  }
+  .dark {
+    --cell-bg: var(--color-gray-600);
+    --cell-bg-front: var(--color-surface-500);
+    --cell-mark-color: var(--color-gray-600);
   }
   
   .cell {
@@ -77,7 +82,7 @@
     transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 0.1);
   }
   
-  .cell:hover {
+  .cell:not(:disabled):hover {
     filter: brightness(110%);
   }
   
