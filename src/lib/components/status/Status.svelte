@@ -27,5 +27,6 @@
     
     position: sticky;
     top: 0;
+    z-index: var(--z-index-navigation, 10);
   }
 </style>
